@@ -6,12 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;//interface
 import java.sql.ResultSet;//interface
 
-public class LaunchConnection {
+public class SQLConnection {
     public Statement stmt = null;
     public ResultSet rs= null;
     public Connection conn=null;
 
-    public LaunchConnection() {
+    public SQLConnection() {
         //Conectar con mysql...
         try {
             //cargando el driver

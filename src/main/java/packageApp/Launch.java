@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Launch extends JFrame{
-    LaunchConnection objConn=new  LaunchConnection();
+    SQLConnection objConn=new  SQLConnection();
     
     public static void main(String ... args){
        Launch bd = new Launch();

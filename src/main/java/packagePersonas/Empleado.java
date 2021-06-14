@@ -15,8 +15,4 @@ public class Empleado extends Persona{
         super(nombre, telefono, correo);
     }
     
-    protected void iniciarSistema(){
-        
-    }
-    
 }
