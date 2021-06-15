@@ -5,10 +5,7 @@
  */
 package packageApp;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import javax.swing.*;
-import packagePersonas.*;
 
 /**
  *
@@ -23,8 +20,6 @@ public class MainLaunch extends JFrame{
     private JLabel jLabelUserIcon;
     private JLabel jLabelUserIcon2;
     private JLabel jLabelUserIcon3;
-    
-    private static SQLConnection conection = new SQLConnection();
     
     public MainLaunch(){
         initComponents();
@@ -69,6 +64,11 @@ public class MainLaunch extends JFrame{
         jButtonCocinero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonCocinero.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCocinero.setText("Cocinero");
+        jButtonCocinero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCocineroActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonCocinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 180, 40));
 
         jButtonAdmin.setBackground(new java.awt.Color(0, 0, 102));
@@ -100,16 +100,20 @@ public class MainLaunch extends JFrame{
     }
     
     private void jButtonMeseroActionPerformed(java.awt.event.ActionEvent evt) {
+        InicioSesionUsuario vent = new InicioSesionUsuario("mesero");
+        vent.setVisible(true);
         
     }
     
     private void jButtonCocineroActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-        System.exit(0);
+        InicioSesionUsuario vent = new InicioSesionUsuario("cocinero");
+        vent.setVisible(true);
+        
     }
     
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        InicioSesionGerente vent = new InicioSesionGerente();
+        vent.setVisible(true);        
     }
     
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,130 +144,5 @@ public class MainLaunch extends JFrame{
                 new MainLaunch().setVisible(true);
             }
         });
-    }
-    
-    public static void iniciarSistema(){
-        Scanner sn = new Scanner(System.in);
-        int opcion;
-        boolean salir = false;
-        
-        while(salir == false){
-            System.out.println("*******************************************");
-            System.out.println("***** Bienvenido a Taqueria Ruvalcaba *****");
-            System.out.println("*******************************************");
-            System.out.println("\n");
-
-            System.out.println("1. Mesero");
-            System.out.println("2. Cocinero");
-            System.out.println("3. Gerente");
-            System.out.println("4. Salir");
-
-            System.out.println("\nPor favor elige el numero del tipo de usuario.");
-            opcion = sn.nextInt();
-
-            try{
-
-                switch (opcion) {
-
-                    case 1:
-                        iniciarMesero();
-                        salir = true;
-                        break;
-                    case 2:
-                        iniciarCocinero();
-                        salir = true;
-                        break;
-                    case 3:
-                        iniciarGerente();
-                        salir = true;
-                        break;
-                    case 4:
-                        salir = true;
-                        break;
-                    default:
-                        System.out.println("\nSolo numero entre 1 y 4");
-                }
-
-            } catch (InputMismatchException e) {
-                System.out.println("Debes de insertar un numero");
-                sn.next(); 
-            }   
-        }
-        
-    }
-    
-    public static void iniciarMesero(){
-        Scanner sn = new Scanner(System.in);
-        String nombreMesero;
-        boolean valido = false;
-        
-        Mesero mesero = new Mesero();
-        
-        while(valido == false){
-            System.out.println("Ingrese su nombre para acceder al sistema");
-            nombreMesero = sn.nextLine();
-            
-            if(mesero.iniciarSesion(nombreMesero, "mesero")){
-                System.out.println("Bienvenido culero");
-                System.out.println(mesero.toString());
-                valido = true;
-            }else{
-                System.out.println("No Bienvenido culero");
-                valido = false;
-            }
-        }
-        
-        
-        
-    }
-    
-    public static void iniciarCocinero(){
-        Scanner sn = new Scanner(System.in);
-        String nombreCocinero;
-        boolean valido = false;
-        
-        Cocinero cocinero = new Cocinero();
-        
-        while(valido == false){
-            System.out.println("Ingrese su nombre para acceder al sistema");
-            nombreCocinero = sn.nextLine();
-            
-            if(cocinero.iniciarSesion(nombreCocinero, "cocinero")){
-                System.out.println("Bienvenido culero");
-                System.out.println(cocinero.toString());
-                valido = true;
-            }else{
-                System.out.println("No Bienvenido culero");
-                valido = false;
-            }
-        }
-    }
-    
-    public static void iniciarGerente(){
-        Scanner sn = new Scanner(System.in);
-        String usuarioGerente;
-        String passGerente;
-        boolean valido = false;
-        
-        Gerente gerente = new Gerente();
-        
-        while(valido == false){
-            System.out.println("Ingrese su usuario para acceder al sistema");
-            usuarioGerente = sn.nextLine();
-            
-            System.out.println("Ingrese su contraseña");
-            passGerente = sn.nextLine();
-            
-            
-            if(gerente.iniciarSesion(usuarioGerente, "gerente", passGerente)){
-                gerente.setPwd(passGerente);
-                System.out.println("Bienvenido culero");
-                System.out.println(gerente.toString());
-                valido = true;
-            }else{
-                System.out.println("No Bienvenido culero");
-                valido = false;
-            }
-        }
     }
 }

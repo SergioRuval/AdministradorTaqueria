@@ -10,28 +10,34 @@ package packagePedidos;
  * @author hellb
  */
 public class DetallePedido {
-    private int codigoPedido;
-    private int codigoAlimento;
+    private Alimento alimento;
     private int cantidad;
-    private double costo;
-
-    public DetallePedido(int codigoPedido, int codigoAlimento, int cantidad, double costo) {
-        this.codigoPedido = codigoPedido;
-        this.codigoAlimento = codigoAlimento;
-        this.cantidad = cantidad;
-        this.costo = costo;
-    }
     
-    public boolean altaDetalle(){
-        return true;
-    }
-    
-    public boolean bajaDetalle(){
-        return true;
-    }
-    
-    public boolean modificaDetalle(){
+    public DetallePedido(){
         
-        return true;        
     }
+
+    public DetallePedido(Alimento alimento, int cantidad) {
+        this.alimento = alimento;
+        this.cantidad = cantidad;
+    }
+    
+    public boolean añadeAlimento(int codigo, int cantidad){
+        return true;
+    }
+    
+    public boolean eliminaAlimento(int cantidad){
+        return true;
+    }
+
+    public Alimento getAlimento() {
+        return alimento;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+    
+    
+    
 }

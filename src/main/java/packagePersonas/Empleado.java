@@ -19,6 +19,14 @@ public class Empleado extends Persona{
         
     }
     
+    public Empleado(Empleado emp){
+        this.setCorreo(emp.getCorreo());
+        this.setDireccion(emp.getDireccion());
+        this.setNombre(emp.getNombre());
+        this.setTelefono(emp.getTelefono());
+        this.setUsuario(emp.getUsuario());
+    }
+    
     public Empleado(String usuario, String nombre, String telefono, String correo, String direccion) {
         super(nombre, telefono, correo, direccion);
         this.usuario = usuario;
@@ -70,6 +78,14 @@ public class Empleado extends Persona{
     
     public void cerrarSesion(){
         
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
     
     

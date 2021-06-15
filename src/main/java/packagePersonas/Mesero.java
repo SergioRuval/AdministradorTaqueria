@@ -14,6 +14,10 @@ public class Mesero extends Empleado{
     public Mesero(){
         
     }
+    
+    public Mesero(Empleado emp){
+        super(emp);
+    }
 
     public Mesero(String usuario, String nombre, String telefono, String correo, String direccion) {
         super(usuario, nombre, telefono, correo, direccion);

@@ -27,4 +27,12 @@ public class Alimento {
         
     }
 
+    public String getNombreAlimento() {
+        return nombreAlimento;
+    }
+
+    public double getPrecio(){
+        return this.precio;
+    }
+
 }

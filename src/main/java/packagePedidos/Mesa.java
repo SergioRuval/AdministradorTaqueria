@@ -5,6 +5,11 @@ public class Mesa {
     private boolean disponibilidad;
     private int capacidad;
 
+    public Mesa(int numeroMesa, boolean disponibilidad) {
+        this.numeroMesa = numeroMesa;
+        this.disponibilidad = disponibilidad;
+    }
+    
     public Mesa(int numeroMesa, boolean disponibilidad, int capacidad) {
         this.numeroMesa = numeroMesa;
         this.disponibilidad = disponibilidad;
