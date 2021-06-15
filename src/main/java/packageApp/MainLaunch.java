@@ -91,6 +91,8 @@ public class MainLaunch {
             }
         }
         
+        
+        
     }
     
     public static void iniciarCocinero(){
@@ -116,6 +118,30 @@ public class MainLaunch {
     }
     
     public static void iniciarGerente(){
-        System.out.println("Bienvenido administrador .|.");
+        Scanner sn = new Scanner(System.in);
+        String usuarioGerente;
+        String passGerente;
+        boolean valido = false;
+        
+        Gerente gerente = new Gerente();
+        
+        while(valido == false){
+            System.out.println("Ingrese su usuario para acceder al sistema");
+            usuarioGerente = sn.nextLine();
+            
+            System.out.println("Ingrese su contraseña");
+            passGerente = sn.nextLine();
+            
+            
+            if(gerente.iniciarSesion(usuarioGerente, "gerente", passGerente)){
+                gerente.setPwd(passGerente);
+                System.out.println("Bienvenido culero");
+                System.out.println(gerente.toString());
+                valido = true;
+            }else{
+                System.out.println("No Bienvenido culero");
+                valido = false;
+            }
+        }
     }
 }
