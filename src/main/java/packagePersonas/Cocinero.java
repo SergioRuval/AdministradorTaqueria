@@ -11,8 +11,12 @@ package packagePersonas;
  */
 public class Cocinero extends Empleado{
 
-    public Cocinero(String nombre, String telefono, String correo) {
-        super(nombre, telefono, correo);
+    public Cocinero(){
+        
+    }
+    
+    public Cocinero(String usuario, String nombre, String telefono, String correo, String direccion) {
+        super(usuario, nombre, telefono, correo, direccion);
     }
     
     public void prepararPedido(){

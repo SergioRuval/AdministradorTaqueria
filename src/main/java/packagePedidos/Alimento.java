@@ -1,28 +1,30 @@
 package packagePedidos;
 
 public class Alimento {
-    protected String nombre;
+    protected int codigoAlimento;
+    protected String tipoAlimento;
+    protected String nombreAlimento;
     protected double precio;
+    protected String descripcion;
+
+    public Alimento(int codigoAlimento, String tipoAlimento, String nombreAlimento, double precio, String descripcion) {
+        this.codigoAlimento = codigoAlimento;
+        this.tipoAlimento = tipoAlimento;
+        this.nombreAlimento = nombreAlimento;
+        this.precio = precio;
+        this.descripcion = descripcion;
+    }
     
-    public Alimento(String nombre, double precio) {
-        this.nombre = nombre;
-        this.precio = precio;
+    public void registrarAlimento(){
+        
     }
-
-    public String getNombre() {
-        return nombre;
+    
+    public void modificarAlimento(int codigo){
+        
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    
+    public void eliminarAlimento(int codigo){
+        
     }
 
 }

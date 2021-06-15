@@ -1,18 +1,28 @@
 package packagePedidos;
 
-import packagePersonas.Mesero;
+import packagePersonas.*;
 
 public class Pedido {
+    private int codigoPedido;
     private Mesa mesa;
     private Mesero mesero;
+    private Cliente cliente;
     private boolean estado;
-    private Alimento[] alimentosAdquiridos;
+    private String fecha[];
+    private double totalPagar;
 
-    public Pedido(Mesa mesa, Mesero mesero, boolean estado, Alimento[] alimentosAdquiridos) {
+    public Pedido(int codigoPedido, Mesa mesa, Mesero mesero, Cliente cliente, boolean estado, String[] fecha, double totalPagar) {
+        this.codigoPedido = codigoPedido;
         this.mesa = mesa;
         this.mesero = mesero;
+        this.cliente = cliente;
         this.estado = estado;
-        this.alimentosAdquiridos = alimentosAdquiridos;
+        this.fecha = fecha;
+        this.totalPagar = totalPagar;
+    }
+    
+    public void sumarTotal(double costo){
+        
     }
 
     public Mesa getMesa() {
@@ -38,14 +48,5 @@ public class Pedido {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
-    public Alimento[] getAlimentosAdquiridos() {
-        return alimentosAdquiridos;
-    }
-
-    public void setAlimentosAdquiridos(Alimento[] alimentosAdquiridos) {
-        this.alimentosAdquiridos = alimentosAdquiridos;
-    }
-    
     
 }

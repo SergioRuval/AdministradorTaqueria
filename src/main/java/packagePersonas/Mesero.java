@@ -11,23 +11,23 @@ package packagePersonas;
  */
 public class Mesero extends Empleado{
     
-    public Mesero(String nombre, String telefono, String correo) {
-        super(nombre, telefono, correo);
+    public Mesero(){
+        
+    }
+
+    public Mesero(String usuario, String nombre, String telefono, String correo, String direccion) {
+        super(usuario, nombre, telefono, correo, direccion);
     }
     
-    public void tomarPedido(String[] pedido){
+    public void registrarPedido(){
         
     }
     
-    public void cancelarPedido(String pedido){
+    public void modificarPedido(int codigoPedido){
         
     }
     
-    public void modificarPedido(String pedido){
-        
-    }
-    
-    public void entregarPedido(String pedido){
+    public void cancelarPedido(int codigoPedido){
         
     }
     

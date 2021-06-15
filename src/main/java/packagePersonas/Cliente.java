@@ -11,15 +11,7 @@ package packagePersonas;
  */
 public class Cliente extends Persona{
     
-    public Cliente(String nombre, String telefono, String correo) {
-        super(nombre, telefono, correo);
-    }
-    
-    public void reservarMesa(){
-        
-    }
-    
-    public void cancelarReservacion(){
-        
+    public Cliente(String nombre, String telefono, String correo,String direccion) {
+        super(nombre, telefono, correo, direccion);
     }
 }
